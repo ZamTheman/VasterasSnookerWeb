@@ -1,0 +1,29 @@
+﻿@using VästeråsSnooker.Models
+@model IViewPlayersViewModel
+@{
+    ViewBag.Title = "View";
+}
+
+<h3>Spelare</h3>
+
+</a>
+<div class="row container">
+    <div class="col-sm-4" id="playersListId">
+        <ul class="list-group">
+            <a href="#" onclick="createPlayer()">
+                <li class="list-group-item">Ny spelare</li>
+            </a>
+                @{
+                    foreach (var player in Model.AllPlayers)
+                    {
+                        <a href="#" onclick="getPlayer(@player.Id)">
+                            <li class="list-group-item">@player.Name</li>
+                        </a>
+                    }
+                }
+        </ul>
+    </div>
+    <div id="playerDetails"></div>
+       
+</div>
+<script src="~/Scripts/SiteScripts/PlayerScripts.js"></script>

@@ -1,0 +1,31 @@
+﻿@model VästeråsSnooker.Models.ICreatePlayerViewModel
+
+<h2>Lägg till en ny spelare</h2>
+
+@using (Html.BeginForm("CreatePlayer", "PlayerCreated", FormMethod.Post, new { enctype = "multipart/form-data", id = "createPlayerForm" }))
+{
+    <fieldset>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, "Namn")
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", id = "playerNameId"})
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ImageUpload, "Ladda upp en bild")
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <span class="btn btn-default btn-file">
+                        Browse… 
+                        @Html.TextBoxFor(m => m.ImageUpload, new { type = "file", id = "imgInp" })
+                    </span>
+                    <input type="text" class="form-control" readonly>
+                </span>
+            </div>
+            <img id='img-upload' />
+        </div>
+        <button type="submit" class="btn btn-default" value="CreatePlayer">Spara</button>
+        <button type="reset" class="btn btn-default">Avbryt</button>
+    </fieldset>
+}
+
+<script src="~/Scripts/SiteScripts/ImageUploader.js"></script>

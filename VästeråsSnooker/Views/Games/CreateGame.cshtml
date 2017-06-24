@@ -1,0 +1,40 @@
+﻿@model VästeråsSnooker.Models.ViewModels.IGameViewModel
+
+<fieldset class="container">
+    <div class="row top-buffer form-group">
+        <div class="col-sm-4">
+            @Html.LabelFor(m => m.Datum, "Datum")
+            @Html.EditorFor(m => m.Datum, new { htmlAttributes = new { @class = "date form-control", id = "datePickerId", value = "datePickerValue" } })
+        </div>
+
+        <div class="col-sm-4">
+            @Html.LabelFor(m => m.Spelare1, "Spelare 1")
+            @Html.DropDownListFor(m => m.Spelare1, Model.SpelareAttVäljaMellan, "Ange spelare 1", new { @class = "form-control", id = "spelare1SelectorId" })
+        </div>
+        <div class="col-sm-4">
+            @Html.LabelFor(m => m.Spelare2, "Spelare 2")
+            @Html.DropDownListFor(m => m.Spelare2, Model.SpelareAttVäljaMellan, "Ange spelare 2", new { @class = "form-control", id = "spelare2SelectorId" })
+        </div>
+    </div>
+    <div class="row top-buffer form-group" id="gameResultRightDivId">
+        <div class="col-sm-4">
+            @Html.LabelFor(m => m.HogstaSerieSpelare1, "Högsta Serie, spelare 1", new { id = "hogstaSerie1Id" })
+            @Html.EditorFor(m => m.HogstaSerieSpelare1, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="col-sm-4">
+            @Html.LabelFor(m => m.HogstaSerieSpelare2, "Högsta Serie, spelare 2", new { id = "hogstaSerie2Id" })
+            @Html.EditorFor(m => m.HogstaSerieSpelare2, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="col-sm-4">
+            @Html.LabelFor(m => m.AntalFrames, "Antal Frames")
+            @Html.EditorFor(m => m.AntalFrames, new { htmlAttributes = new { @class = "form-control", id = "antalFramesId" } })
+        </div>
+    </div>
+    <div id="frameResultsDivId"></div>
+    <div class="row top-buffer form-group">
+        <button class="btn btn-primary disabled" id="saveGameBtnId" onclick="saveGame()">Spara</button>
+        <button class="btn btn-danger" id="cancelGameBtnId" onclick="cancelGameCreation()">Avbryt</button>
+    </div>
+</fieldset>
+
+<script src="~/Scripts/SiteScripts/Games/GamesScripts.js"></script>

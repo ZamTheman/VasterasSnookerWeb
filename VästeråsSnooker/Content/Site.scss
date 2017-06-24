@@ -1,0 +1,113 @@
+﻿// Color Theme
+$mainBackground: #f6f6f6;
+$blocksBackground: #e8e8e8;
+$blocksBackgroundHover: #d7caca;
+$selecteGradientBackground: linear-gradient(#8a0002, #730101);
+$contentDescreatBackground: white;
+
+// Header
+$topBarHeight: 150px;
+
+.tableContent {
+    background: $contentDescreatBackground;
+    box-shadow: 5px 5px 5px #888;
+    border: 1px solid #888;
+}
+
+.inTableContent {
+    padding: 10px;
+    background: $contentDescreatBackground;
+    box-shadow: 5px 5px 5px #888;
+    border: 1px solid #888;
+}
+
+.topBarImage {
+    height: $topBarHeight;
+    background: url('Images/topBanner.jpg') no-repeat center center;
+    background-size: 100%
+}
+
+.imageContainer {
+    width: 150px;
+}
+
+.top-buffer{
+    margin-top: 5px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+#gameResultRightDivId {
+    visibility: hidden;
+    display: none;
+}
+
+a, a:hover, a:active, a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.list-group-item{
+    background-color: $blocksBackground;
+}
+
+.list-group-item:hover {
+    background-color: $blocksBackgroundHover;
+}
+
+.list-group-item.active, .list-group-item.active:hover {
+    background: $selecteGradientBackground;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Form objects */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload {
+    margin-top: 10px;
+    width: 250px;
+}
