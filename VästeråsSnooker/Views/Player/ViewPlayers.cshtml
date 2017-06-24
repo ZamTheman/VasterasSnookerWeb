@@ -1,5 +1,4 @@
-﻿@using VästeråsSnooker.Models
-@model IViewPlayersViewModel
+﻿@model VästeråsSnooker.Models.ViewModels.IViewPlayersViewModel
 @{
     ViewBag.Title = "View";
 }
@@ -15,7 +14,7 @@
             </a>
                 @{
                     foreach (var player in Model.AllPlayers)
-                    {
+                    {                        player.
                         <a href="#" onclick="getPlayer(@player.Id)">
                             <li class="list-group-item">@player.Name</li>
                         </a>
