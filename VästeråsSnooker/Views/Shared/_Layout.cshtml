@@ -2,22 +2,45 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Västerås Snooker</title>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script type = 'text/javascript' >
+        var appInsights=window.appInsights||function(config)
+        {
+            function r(config){ t[config] = function(){ var i = arguments; t.queue.push(function(){ t[config].apply(t, i)})} }
+            var t = { config:config},u=document,e=window,o='script',s=u.createElement(o),i,f;for(s.src=config.url||'//az416426.vo.msecnd.net/scripts/a/ai.0.js',u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=['Event','Exception','Metric','PageView','Trace','Ajax'];i.length;)r('track'+i.pop());return r('setAuthenticatedUserContext'),r('clearAuthenticatedUserContext'),config.disableExceptionTracking||(i='onerror',r('_'+i),f=e[i],e[i]=function(config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o),s}),t
+        }({
+            instrumentationKey:'0d98f245-623b-4575-8890-f6410408f448'
+        });
+        
+        window.appInsights=appInsights;
+        appInsights.trackPageView();
+    </script>
 </head>
 <body>
     <header>
         <div class="col-lg-12 topBarImage"></div>
         <nav class="navbar navbar-default">
-            <div class="container">
-                <ul class="nav navbar-nav col-sm-10">
-                    <li>@Html.ActionLink("Start", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Spelare", "ViewPlayers", "Player")</li>
-                    <li>@Html.ActionLink("Matcher", "Index", "Games")</li>
-                @Html.Partial("_LoginPartial")
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Västerås Snooker</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Start", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Spelare", "ViewPlayers", "Player")</li>
+                            <li>@Html.ActionLink("Matcher", "Index", "Games")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </nav>
     </header>

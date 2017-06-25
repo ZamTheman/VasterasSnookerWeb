@@ -25,6 +25,8 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/3711d988-03b4-4331-9c7a-5997d485133e/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/VästeråsSnooker</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/3711d988-03b4-4331-9c7a-5997d485133e/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/VästeråsSnooker</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -241,6 +243,7 @@
     <Compile Include="DB\IGameDA.cs" />
     <Compile Include="DB\IPlayerDA.cs" />
     <Compile Include="DB\PlayerDA.cs" />
+    <Compile Include="ErrorHandler\AiHandleErrorAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -256,6 +259,7 @@
     <Compile Include="Installers\ModelsInstaller.cs" />
     <Compile Include="Installers\ViewModelsInstallers.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DataModels\Break.cs" />
     <Compile Include="Models\ViewModels\CreatePlayerViewModel.cs" />
     <Compile Include="Models\ViewModels\GameListViewModel.cs" />
     <Compile Include="Models\ViewModels\GameViewModel.cs" />
@@ -304,6 +308,8 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Connected Services\Application Insights\ConnectedService.json" />
+    <None Include="Properties\PublishProfiles\zamien - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -320,6 +326,7 @@
     <Content Include="Scripts\SiteScripts\Games\GameListScripts.js" />
     <Content Include="Scripts\SiteScripts\ImageUploader.js" />
     <Content Include="Scripts\SiteScripts\PlayerScripts.js" />
+    <Content Include="Scripts\SiteScripts\Players\PlayerDetailsScript.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -381,6 +388,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -18,12 +18,14 @@ namespace VästeråsSnooker.Controllers
         private readonly IPlayerRepository _playerRepository;
         private readonly IViewPlayersViewModel _viewPlayersViewModel;
         private readonly IPlayerDetailsViewModel _playerDetailsViewModel;
+        private readonly IGamesRepository _gameRepository;
 
-        public PlayerController(IPlayerRepository playerRepository, IViewPlayersViewModel viewPlayersViewModel, IPlayerDetailsViewModel playerDetailsViewModel)
+        public PlayerController(IPlayerRepository playerRepository, IViewPlayersViewModel viewPlayersViewModel, IPlayerDetailsViewModel playerDetailsViewModel, IGamesRepository gameRepository)
         {
             _playerRepository = playerRepository;
             _viewPlayersViewModel = viewPlayersViewModel;
             _playerDetailsViewModel = playerDetailsViewModel;
+            _gameRepository = gameRepository;
         }
         
         public ActionResult ViewPlayers()
@@ -42,12 +44,12 @@ namespace VästeråsSnooker.Controllers
         }
        
         [HttpPost]
-        public async Task<ActionResult> PlayerDetails(PlayerDetails player)
+        public ActionResult PlayerDetails(PlayerDetails player)
         {
             var newPlayer = _playerRepository.GetPlayerById(player.Id);
             _playerDetailsViewModel.Id = newPlayer.Id;
             _playerDetailsViewModel.Name = newPlayer.Name;
-            _playerDetailsViewModel.ImageUrl = await FileStorageDA.GetImageByPlayerId(player.Id);
+            _playerDetailsViewModel.ImageUrl = FileStorageDA.GetImageByPlayerId(player.Id);
 
             return PartialView(_playerDetailsViewModel);
         }
@@ -57,6 +59,24 @@ namespace VästeråsSnooker.Controllers
         {
             var player = new CreatePlayerViewModel();
             return PartialView(player);
+        }
+
+        [HttpPost]
+        public ActionResult GetLatestGames(Player player)
+        {
+            var listOfGames = _gameRepository.GetGamesByPlayerId(player.Id);
+            var sortedList = listOfGames.OrderByDescending(g => g.Datum).ToList().Take(5);
+
+            return Json(sortedList);
+        }
+
+        [HttpPost]
+        public ActionResult GetHighestBreaks(Player player)
+        {
+            var listOfBreaks = _gameRepository.GetBreaksByPlayerId(player.Id);
+            var sortedList = listOfBreaks.OrderByDescending(b => b.Serie).ToList().Take(5);
+
+            return Json(sortedList);
         }
 
         [HttpPost]

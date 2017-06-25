@@ -62,9 +62,9 @@ namespace VästeråsSnooker.DB
             }
         }
 
-        public static async Task<string> GetImageByPlayerId(int playerId)
+        public static string GetImageByPlayerId(int playerId)
         {
-            await container.SetPermissionsAsync(new BlobContainerPermissions
+            container.SetPermissions(new BlobContainerPermissions
             {
                 PublicAccess = BlobContainerPublicAccessType.Container
             });

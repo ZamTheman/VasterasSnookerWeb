@@ -7,5 +7,7 @@ namespace VästeråsSnooker.BL
     {
         List<Game> GetAllGames();
         int CreateGame(IGame game);
+        List<Game> GetGamesByPlayerId(int playerId);
+        List<Break> GetBreaksByPlayerId(int id);
     }
 }
