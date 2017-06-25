@@ -9,6 +9,10 @@
   box-shadow: 5px 5px 5px #888;
   border: 1px solid #888; }
 
+.inButtonIcon {
+  font-size: 18px;
+  color: white; }
+
 .topBarImage {
   height: 150px;
   background: url("Images/topBanner.jpg") no-repeat center center;

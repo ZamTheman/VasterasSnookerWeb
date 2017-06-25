@@ -361,7 +361,6 @@
     <Content Include="Views\Player\CreatePlayerPartial.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
     <Content Include="Views\Games\SaveGame.cshtml" />
-    <Content Include="Views\Games\GetAllGames.cshtml" />
     <Content Include="Views\Games\CreateGame.cshtml" />
   </ItemGroup>
   <ItemGroup>

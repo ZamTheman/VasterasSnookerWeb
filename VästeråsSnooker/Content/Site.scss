@@ -21,6 +21,11 @@ $topBarHeight: 150px;
     border: 1px solid #888;
 }
 
+.inButtonIcon {
+    font-size: 18px;
+    color: white;
+}
+
 .topBarImage {
     height: $topBarHeight;
     background: url('Images/topBanner.jpg') no-repeat center center;
