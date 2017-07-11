@@ -233,6 +233,9 @@
     <Compile Include="BL\IGamesRepository.cs" />
     <Compile Include="BL\IPlayerRepository.cs" />
     <Compile Include="BL\PlayerRepository.cs" />
+    <Compile Include="BL\Tournament\ITournamentRepository.cs" />
+    <Compile Include="BL\Tournament\TournamentManager.cs" />
+    <Compile Include="BL\Tournament\TournamentRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -260,6 +263,7 @@
     <Compile Include="Installers\ViewModelsInstallers.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DataModels\Break.cs" />
+    <Compile Include="Models\DataModels\TournamentGame.cs" />
     <Compile Include="Models\ViewModels\CreatePlayerViewModel.cs" />
     <Compile Include="Models\ViewModels\GameListViewModel.cs" />
     <Compile Include="Models\ViewModels\GameViewModel.cs" />
